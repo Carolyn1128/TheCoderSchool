@@ -27,7 +27,7 @@ public class Mario extends JApplet implements Runnable{
 
     Graphics2D gfx;
     BufferedImage bgd;
-    BufferedImage playerimg,imge;
+    BufferedImage playerimg,imge,goomba;
     Player player;
             
             
@@ -36,7 +36,9 @@ public class Mario extends JApplet implements Runnable{
         try {
            bgd = ImageIO.read(Mario.class.getResource("img/plain-blue-background.jpg"));
            playerimg = ImageIO.read(Mario.class.getResource("img/Marior.png"));
-           player = new Player(playerimg, 450,250);
+           goomba = ImageIO.read(Mario.class.getResource("img/goomba.PNG"));
+           player = new Player(playerimg, 150,250);
+           
            
         } catch (IOException ex) {
             Logger.getLogger(Mario.class.getName()).log(Level.SEVERE, null, ex);
@@ -74,8 +76,9 @@ public class Mario extends JApplet implements Runnable{
             System.out.println("bgd broke");
         }
         g.setColor(Color.white);
-        //g.drawString("It's a me, Mario", 300,300);
+        g.drawString("It's a me, Mario", 100,50);
         player.draw(g,this);
+        g.drawImage(goomba, 500,200, 200,200, this);
     }
  
     
